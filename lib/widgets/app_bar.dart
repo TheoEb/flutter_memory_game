@@ -1,40 +1,73 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
-class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:memory_game/screens/profile.dart';
+import 'package:memory_game/screens/settings.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class HomeAppBar extends StatefulWidget implements PreferredSizeWidget {
+  @override
+  _HomeAppBarState createState() => _HomeAppBarState();
+
+  @override
+  Size get preferredSize => new Size.fromHeight(100);
+}
+
+class _HomeAppBarState extends State<HomeAppBar> {
+  File _image;
+
+  @override
+  void initState() {
+    super.initState();
+    loadImage();
+  }
+
+  void loadImage() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _image = File(prefs.getString("imagePath"));
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: Padding(
-        padding: EdgeInsets.only(left: 20),
-        child:  Container(
-          decoration: BoxDecoration(
-            border: Border.all(
-              width: 1,
-              color: Theme.of(context).buttonColor,
+      automaticallyImplyLeading: false,
+      backgroundColor: Theme.of(context).backgroundColor,
+      flexibleSpace: Container(
+        margin: EdgeInsets.only(top: 40, right: 20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            GestureDetector(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfileScreen()),
+              ),
+              child: CircleAvatar(
+                radius: 60,
+                backgroundImage: _image != null
+                    ? FileImage(_image)
+                    : NetworkImage(
+                        "https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png"),
+              ),
             ),
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              image: NetworkImage('https://www.seekpng.com/png/small/72-729869_circled-user-female-skin-type-4-icon-profile.png'),
-              fit: BoxFit.contain,
+            IconButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SettingsScreen()),
+              ),
+              icon: Icon(
+                Icons.settings,
+                color: Theme.of(context).accentColor,
+                size: 30,
+              ),
             ),
-          ),
+          ],
         ),
       ),
-      backgroundColor: Theme.of(context).backgroundColor,
       elevation: 0,
-      actions: [
-        Padding(
-          padding: EdgeInsets.only(right: 20),
-          child:Icon(
-            Icons.settings,
-            color: Theme.of(context).accentColor,
-          ),
-        ),
-      ],
     );
   }
-
-  @override
-  Size get preferredSize => new Size.fromHeight(kToolbarHeight);
 }

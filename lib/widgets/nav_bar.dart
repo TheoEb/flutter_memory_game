@@ -12,16 +12,13 @@ class NavigationBar extends StatefulWidget {
 }
 
 class _NavigationBarState extends State<NavigationBar> {
-
   @override
   Widget build(BuildContext context) {
     return SnakeNavigationBar.color(
       behaviour: SnakeBarBehaviour.floating,
       snakeShape: SnakeShape.indicator,
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-            Radius.circular(50)
-        ),
+        borderRadius: BorderRadius.all(Radius.circular(50)),
       ),
       padding: EdgeInsets.all(12),
       backgroundColor: Theme.of(context).primaryColor.withAlpha(128),
@@ -29,12 +26,14 @@ class _NavigationBarState extends State<NavigationBar> {
       selectedItemColor: Theme.of(context).accentColor,
       unselectedItemColor: Theme.of(context).accentColor,
       currentIndex: widget.index,
-
       onTap: (index) => widget.onTap(index),
       items: [
-        BottomNavigationBarItem(icon: Icon(Icons.looks_one_rounded), label: 'easy'),
-        BottomNavigationBarItem(icon: Icon(Icons.looks_two_rounded), label: 'medium'),
-        BottomNavigationBarItem(icon: Icon(Icons.looks_3_rounded), label: 'hard')
+        BottomNavigationBarItem(
+            icon: Icon(Icons.looks_one_rounded), label: 'easy'),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.looks_two_rounded), label: 'medium'),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.looks_3_rounded), label: 'hard')
       ],
     );
   }

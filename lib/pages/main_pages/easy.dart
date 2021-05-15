@@ -10,34 +10,56 @@ class EasyPage extends StatefulWidget {
 }
 
 class _EasyPageState extends State<EasyPage> {
-
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
+      width: double.infinity,
+      alignment: Alignment.center,
       color: Theme.of(context).backgroundColor,
-      child: Center(
-        child: ElevatedButton(
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => EasyGame()),
-          ),
-          style: ButtonStyle(
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                )
-            ),
-            backgroundColor: MaterialStateProperty.all(
-                Theme.of(context).buttonColor,
-            ),
-            minimumSize: MaterialStateProperty.all(
-                Size.square(100),
-            )
-          ),
-          child: Text(
-            'play',
-          ),
+      child: Container(
+        margin: EdgeInsets.symmetric(
+          vertical: 100,
+          horizontal: 12,
         ),
+        child: Column(children: [
+          Expanded(
+            child: Container(),
+          ),
+          Expanded(
+            flex: 5,
+            child: Image.asset(
+              "images/logo_full.png",
+              fit: BoxFit.fitWidth,
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Text("Easy"),
+          ),
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => EasyGame()),
+                ),
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(100.0),
+                  )),
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                    Theme.of(context).buttonColor,
+                  ),
+                ),
+                child: Text(
+                  'PLAY',
+                ),
+              ),
+            ),
+          ),
+        ]),
       ),
     );
   }

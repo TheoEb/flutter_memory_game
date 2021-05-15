@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:memory_game/screens/home.dart';
 
-
 void main() => runApp(MyApp());
 
 BuildContext testContext;
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Color(0xFF160C31),
         primaryColor: Color(0xFF403A54),
         accentColor: Color(0xFF47D5D7),
-        buttonColor: Color(0xFF8877DF)
+        buttonColor: Color(0xFF8877DF),
       ),
       home: Home(),
     );

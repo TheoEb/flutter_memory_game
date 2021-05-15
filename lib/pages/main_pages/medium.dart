@@ -10,10 +10,9 @@ class MediumPage extends StatefulWidget {
 }
 
 class _MediumPageState extends State<MediumPage> {
-
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       color: Theme.of(context).backgroundColor,
       child: Center(
         child: ElevatedButton(
@@ -22,18 +21,16 @@ class _MediumPageState extends State<MediumPage> {
             MaterialPageRoute(builder: (context) => MediumGame()),
           ),
           style: ButtonStyle(
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                )
-            ),
-            backgroundColor: MaterialStateProperty.all(
+              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              )),
+              backgroundColor: MaterialStateProperty.all(
                 Theme.of(context).buttonColor,
-            ),
-            minimumSize: MaterialStateProperty.all(
+              ),
+              minimumSize: MaterialStateProperty.all(
                 Size.square(100),
-            )
-          ),
+              )),
           child: Text(
             'play',
           ),

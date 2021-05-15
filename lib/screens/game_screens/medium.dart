@@ -9,7 +9,6 @@ class MediumGame extends StatefulWidget {
 }
 
 class _MediumGameState extends State<MediumGame> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

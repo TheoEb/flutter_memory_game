@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:memory_game/pages/main_page.dart';
 import 'package:memory_game/widgets/app_bar.dart';
 import 'package:memory_game/widgets/nav_bar.dart';
-import 'package:memory_game/pages/main_page.dart';
 
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);
@@ -32,7 +31,8 @@ class _HomeState extends State<Home> {
   void _animateToPage(int index) {
     setState(() {
       _index = index;
-      _pageController.animateToPage(index, duration: Duration(milliseconds: 500), curve: Curves.easeOut);
+      _pageController.animateToPage(index,
+          duration: Duration(milliseconds: 500), curve: Curves.easeOut);
     });
   }
 
@@ -48,9 +48,14 @@ class _HomeState extends State<Home> {
       extendBodyBehindAppBar: true,
       extendBody: true,
       appBar: HomeAppBar(),
-      body: MainPage(controller: _pageController, setIndex: _setIndex,),
-      bottomNavigationBar: NavigationBar(index: _index, onTap: _animateToPage,),
+      body: MainPage(
+        controller: _pageController,
+        setIndex: _setIndex,
+      ),
+      bottomNavigationBar: NavigationBar(
+        index: _index,
+        onTap: _animateToPage,
+      ),
     );
   }
-
 }

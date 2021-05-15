@@ -9,7 +9,6 @@ class HardGame extends StatefulWidget {
 }
 
 class _HardGameState extends State<HardGame> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

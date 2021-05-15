@@ -9,7 +9,6 @@ class EasyGame extends StatefulWidget {
 }
 
 class _EasyGameState extends State<EasyGame> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
