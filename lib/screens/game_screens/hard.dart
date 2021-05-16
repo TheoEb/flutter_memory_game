@@ -15,7 +15,6 @@ class _HardGameState extends State<HardGame> {
       extendBodyBehindAppBar: true,
       extendBody: true,
       body: Container(
-        color: Theme.of(context).backgroundColor,
         child: Center(
           child: GameGrid(
             size: 5,

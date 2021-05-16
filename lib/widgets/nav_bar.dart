@@ -18,13 +18,9 @@ class _NavigationBarState extends State<NavigationBar> {
       behaviour: SnakeBarBehaviour.floating,
       snakeShape: SnakeShape.indicator,
       shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(50)),
+        borderRadius: BorderRadius.all(Radius.circular(100)),
       ),
       padding: EdgeInsets.all(12),
-      backgroundColor: Theme.of(context).primaryColor.withAlpha(128),
-      snakeViewColor: Theme.of(context).accentColor,
-      selectedItemColor: Theme.of(context).accentColor,
-      unselectedItemColor: Theme.of(context).accentColor,
       currentIndex: widget.index,
       onTap: (index) => widget.onTap(index),
       items: [

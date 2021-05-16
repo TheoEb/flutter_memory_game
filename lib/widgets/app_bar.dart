@@ -34,7 +34,6 @@ class _HomeAppBarState extends State<HomeAppBar> {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: Theme.of(context).backgroundColor,
       flexibleSpace: Container(
         margin: EdgeInsets.only(top: 40, right: 20),
         child: Row(
@@ -58,11 +57,7 @@ class _HomeAppBarState extends State<HomeAppBar> {
                 context,
                 MaterialPageRoute(builder: (context) => SettingsScreen()),
               ),
-              icon: Icon(
-                Icons.settings,
-                color: Theme.of(context).accentColor,
-                size: 30,
-              ),
+              icon: Icon(Icons.settings),
             ),
           ],
         ),

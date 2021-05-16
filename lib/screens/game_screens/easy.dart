@@ -15,7 +15,6 @@ class _EasyGameState extends State<EasyGame> {
       extendBodyBehindAppBar: true,
       extendBody: true,
       body: Container(
-        color: Theme.of(context).backgroundColor,
         child: Center(
           child: GameGrid(
             size: 3,

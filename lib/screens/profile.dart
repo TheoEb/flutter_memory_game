@@ -38,15 +38,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
       context: context,
       builder: (BuildContext context) {
         return SimpleDialog(
-          title: Text('Select image picker'),
+          title: Text('Select image from'),
           children: [
             SimpleDialogOption(
-                child: Text("Camera"),
+                child: Row(
+                  children: [
+                    Icon(Icons.camera_alt_outlined),
+                    SizedBox(width: 12),
+                    Text("Camera"),
+                  ],
+                ),
                 onPressed: () {
                   Navigator.pop(context, Answers.CAMERA);
                 }),
             SimpleDialogOption(
-                child: Text("Gallery"),
+                child: Row(
+                  children: [
+                    Icon(Icons.perm_media_outlined),
+                    SizedBox(width: 12),
+                    Text("Gallery"),
+                  ],
+                ),
                 onPressed: () {
                   Navigator.pop(context, Answers.GALLERY);
                 }),
@@ -108,91 +120,141 @@ class _ProfileScreenState extends State<ProfileScreen> {
       extendBodyBehindAppBar: true,
       extendBody: true,
       body: Container(
+        margin: EdgeInsets.all(12),
         width: double.infinity,
-        color: Theme.of(context).backgroundColor,
-        child: Column(children: [
-          Container(
-            height: 40,
-          ),
-          GestureDetector(
-            child: CircleAvatar(
-              radius: 100,
-              backgroundImage: _image != null
-                  ? FileImage(_image)
-                  : NetworkImage(
-                      "https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png"),
-            ),
-            onTap: getImage,
-          ),
-          Container(
-            margin: EdgeInsets.all(20),
-            child: TextField(
-              controller: textController,
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Theme.of(context).accentColor,
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(),
+              GestureDetector(
+                child: CircleAvatar(
+                  radius: 100,
+                  backgroundImage: _image != null
+                      ? FileImage(_image)
+                      : NetworkImage(
+                          "https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png"),
+                ),
+                onTap: getImage,
+              ),
+              Container(
+                child: TextFormField(
+                  controller: textController,
+                  decoration: InputDecoration(hintText: 'Name'),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Text(
+                        'Best scores',
+                        style: TextStyle(
+                          fontSize: 32,
+                        ),
+                      ),
                     ),
+                    Text(
+                      "Easy",
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "--:--",
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                        Text(
+                          "--:--",
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                        Text(
+                          "--:--",
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      "Medium",
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "--:--",
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                        Text(
+                          "--:--",
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                        Text(
+                          "--:--",
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      "Hard",
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          "--:--",
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                        Text(
+                          "--:--",
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                        Text(
+                          "--:--",
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: save,
+                  child: Text(
+                    'SAVE',
                   ),
-                  hintText: 'Name'),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Best scores'),
-                Container(
-                  height: 20,
                 ),
-                Text("Easy"),
-                Container(
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    Expanded(child: Text("00:30")),
-                    Expanded(child: Text("00:30")),
-                    Expanded(child: Text("00:30")),
-                  ],
-                ),
-                Container(
-                  height: 40,
-                ),
-                Text("Medium"),
-                Container(
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    Expanded(child: Text("00:30")),
-                    Expanded(child: Text("00:30")),
-                    Expanded(child: Text("00:30")),
-                  ],
-                ),
-                Container(
-                  height: 40,
-                ),
-                Text("Hard"),
-                Container(
-                  height: 20,
-                ),
-                Row(
-                  children: [
-                    Expanded(child: Text("00:30")),
-                    Expanded(child: Text("00:30")),
-                    Expanded(child: Text("00:30")),
-                  ],
-                )
-              ],
-            ),
-          )
-        ]),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: save,
-        child: Icon(Icons.save),
+              ),
+            ]),
       ),
     );
   }

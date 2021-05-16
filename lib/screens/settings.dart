@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:memory_game/theme/config.dart';
 
 class SettingsScreen extends StatefulWidget {
   SettingsScreen({Key key}) : super(key: key);
@@ -13,8 +14,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       extendBody: true,
-      body: Container(
-        color: Theme.of(context).backgroundColor,
+      body: Center(
+        child: IconButton(
+          icon: const Icon(Icons.brightness_4),
+          onPressed: () => currentTheme.toggleTheme(),
+        ),
       ),
     );
   }

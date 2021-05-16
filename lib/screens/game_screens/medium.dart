@@ -15,7 +15,6 @@ class _MediumGameState extends State<MediumGame> {
       extendBodyBehindAppBar: true,
       extendBody: true,
       body: Container(
-        color: Theme.of(context).backgroundColor,
         child: Center(
           child: GameGrid(
             size: 4,

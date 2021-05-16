@@ -15,7 +15,6 @@ class _EasyPageState extends State<EasyPage> {
     return Container(
       width: double.infinity,
       alignment: Alignment.center,
-      color: Theme.of(context).backgroundColor,
       child: Container(
         margin: EdgeInsets.symmetric(
           vertical: 100,
@@ -43,15 +42,6 @@ class _EasyPageState extends State<EasyPage> {
                 onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => EasyGame()),
-                ),
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(100.0),
-                  )),
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                    Theme.of(context).buttonColor,
-                  ),
                 ),
                 child: Text(
                   'PLAY',
