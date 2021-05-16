@@ -17,7 +17,7 @@ class _MediumGameState extends State<MediumGame> {
       body: Container(
         child: Center(
           child: GameGrid(
-            size: 4,
+            size: GridSize.medium,
           ),
         ),
       ),

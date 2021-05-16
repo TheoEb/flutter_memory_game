@@ -25,59 +25,43 @@ class _GameCardState extends State<GameCard> {
     controller.toggleCard();
   }
 
-  Color getColor() {
+  Widget getCard() {
     switch (widget.type) {
       case 1:
         {
-          return Colors.blue;
+          return Image.asset("images/card_1.png");
         }
       case 2:
         {
-          return Colors.lightBlue;
+          return Image.asset("images/card_2.png");
         }
       case 3:
         {
-          return Colors.green;
+          return Image.asset("images/card_3.png");
         }
       case 4:
         {
-          return Colors.lightGreen;
+          return Image.asset("images/card_4.png");
         }
       case 5:
         {
-          return Colors.yellow;
+          return Image.asset("images/card_5.png");
         }
       case 6:
         {
-          return Colors.orange;
+          return Image.asset("images/card_6.png");
         }
       case 7:
         {
-          return Colors.deepOrange;
+          return Image.asset("images/card_7.png");
         }
       case 8:
         {
-          return Colors.red;
-        }
-      case 9:
-        {
-          return Colors.purple;
-        }
-      case 10:
-        {
-          return Colors.deepPurple;
-        }
-      case 11:
-        {
-          return Colors.brown;
-        }
-      case 12:
-        {
-          return Colors.grey;
+          return Image.asset("images/card_8.png");
         }
       default:
         {
-          return Colors.black;
+          return Image.asset("images/card_9.png");
         }
     }
   }
@@ -88,19 +72,8 @@ class _GameCardState extends State<GameCard> {
       flipOnTouch: flippable,
       controller: controller,
       onFlip: widget.checkMatch,
-      front: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).accentColor,
-          borderRadius: BorderRadius.all(Radius.circular(8.0)),
-        ),
-        child: Text(widget.type.toString()),
-      ),
-      back: Container(
-        decoration: BoxDecoration(
-          color: getColor(),
-          borderRadius: BorderRadius.all(Radius.circular(8.0)),
-        ),
-      ),
+      front: Image.asset("images/card.png"),
+      back: getCard(),
     );
   }
 }

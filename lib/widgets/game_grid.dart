@@ -4,10 +4,12 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_wall_layout/flutter_wall_layout.dart';
 import 'package:memory_game/components/game_card.dart';
 
+enum GridSize { small, medium, large }
+
 class GameGrid extends StatefulWidget {
   GameGrid({Key key, this.size}) : super(key: key);
 
-  final int size;
+  final GridSize size;
 
   @override
   _GameGridState createState() => _GameGridState();
@@ -28,8 +30,20 @@ class _GameGridState extends State<GameGrid> {
     flipped = !flipped;
   }
 
-  List<Stone> generateCards(size) {
-    cards = List.generate(size * size, (index) {
+  List<Stone> generateCards() {
+    int nb = 0;
+    switch (widget.size) {
+      case GridSize.small:
+        nb = 6;
+        break;
+      case GridSize.medium:
+        nb = 12;
+        break;
+      case GridSize.large:
+        nb = 16;
+        break;
+    }
+    cards = List.generate(nb, (index) {
       return Stone(
         id: index,
         width: 1,
@@ -41,11 +55,23 @@ class _GameGridState extends State<GameGrid> {
     return shuffle(cards);
   }
 
+  int getSize() {
+    switch (widget.size) {
+      case GridSize.small:
+        return 3;
+      case GridSize.medium:
+        return 4;
+      case GridSize.large:
+        return 4;
+    }
+    return 3;
+  }
+
   @override
   Widget build(BuildContext context) {
     return WallLayout(
-      layersCount: widget.size,
-      stones: generateCards(widget.size),
+      layersCount: getSize(),
+      stones: generateCards(),
     );
   }
 }

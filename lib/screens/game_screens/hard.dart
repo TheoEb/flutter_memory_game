@@ -17,7 +17,7 @@ class _HardGameState extends State<HardGame> {
       body: Container(
         child: Center(
           child: GameGrid(
-            size: 5,
+            size: GridSize.large,
           ),
         ),
       ),

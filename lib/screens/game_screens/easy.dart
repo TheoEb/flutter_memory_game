@@ -17,7 +17,7 @@ class _EasyGameState extends State<EasyGame> {
       body: Container(
         child: Center(
           child: GameGrid(
-            size: 3,
+            size: GridSize.small,
           ),
         ),
       ),
