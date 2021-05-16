@@ -15,41 +15,37 @@ class _HardPageState extends State<HardPage> {
     return Container(
       width: double.infinity,
       alignment: Alignment.center,
-      child: Container(
-        margin: EdgeInsets.symmetric(
-          vertical: 100,
-          horizontal: 12,
-        ),
-        child: Column(children: [
-          Expanded(
-            child: Container(),
+      margin: EdgeInsets.only(
+        top: 200,
+        bottom: 100,
+        left: 12,
+        right: 12,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Image.asset(
+            "images/logo_full.png",
+            fit: BoxFit.fitWidth,
           ),
-          Expanded(
-            flex: 5,
-            child: Image.asset(
-              "images/logo_full.png",
-              fit: BoxFit.fitWidth,
-            ),
+          Image.asset(
+            "images/hard_mode.png",
+            fit: BoxFit.fitWidth,
           ),
-          Expanded(
-            flex: 2,
-            child: Text("Hard"),
-          ),
-          Expanded(
-            child: Container(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HardGame()),
-                ),
-                child: Text(
-                  'PLAY',
-                ),
+          Container(
+            height: kBottomNavigationBarHeight,
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HardGame()),
+              ),
+              child: Text(
+                'PLAY',
               ),
             ),
           ),
-        ]),
+        ],
       ),
     );
   }

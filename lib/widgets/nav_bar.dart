@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class NavigationBar extends StatefulWidget {
   NavigationBar({Key key, this.index, this.onTap}) : super(key: key);
@@ -25,11 +26,27 @@ class _NavigationBarState extends State<NavigationBar> {
       onTap: (index) => widget.onTap(index),
       items: [
         BottomNavigationBarItem(
-            icon: Icon(Icons.looks_one_rounded), label: 'easy'),
+          icon: SvgPicture.asset(
+            "icons/easy.svg",
+            width: 24,
+            color: Theme.of(context).accentColor,
+          ),
+          label: 'easy',
+        ),
         BottomNavigationBarItem(
-            icon: Icon(Icons.looks_two_rounded), label: 'medium'),
+            icon: SvgPicture.asset(
+              "icons/medium.svg",
+              width: 24,
+              color: Theme.of(context).accentColor,
+            ),
+            label: 'medium'),
         BottomNavigationBarItem(
-            icon: Icon(Icons.looks_3_rounded), label: 'hard')
+            icon: SvgPicture.asset(
+              "icons/hard.svg",
+              width: 24,
+              color: Theme.of(context).accentColor,
+            ),
+            label: 'hard')
       ],
     );
   }

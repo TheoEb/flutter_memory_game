@@ -15,41 +15,37 @@ class _EasyPageState extends State<EasyPage> {
     return Container(
       width: double.infinity,
       alignment: Alignment.center,
-      child: Container(
-        margin: EdgeInsets.symmetric(
-          vertical: 100,
-          horizontal: 12,
-        ),
-        child: Column(children: [
-          Expanded(
-            child: Container(),
+      margin: EdgeInsets.only(
+        top: 200,
+        bottom: 100,
+        left: 12,
+        right: 12,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Image.asset(
+            "images/logo_full.png",
+            fit: BoxFit.fitWidth,
           ),
-          Expanded(
-            flex: 5,
-            child: Image.asset(
-              "images/logo_full.png",
-              fit: BoxFit.fitWidth,
-            ),
+          Image.asset(
+            "images/easy_mode.png",
+            fit: BoxFit.fitWidth,
           ),
-          Expanded(
-            flex: 2,
-            child: Text("Easy"),
-          ),
-          Expanded(
-            child: Container(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => EasyGame()),
-                ),
-                child: Text(
-                  'PLAY',
-                ),
+          Container(
+            height: kBottomNavigationBarHeight,
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => EasyGame()),
+              ),
+              child: Text(
+                'PLAY',
               ),
             ),
           ),
-        ]),
+        ],
       ),
     );
   }

@@ -9,6 +9,10 @@ class CustomTheme with ChangeNotifier {
     notifyListeners();
   }
 
+  bool isDark() {
+    return _isDarkTheme;
+  }
+
   static ThemeData get lightTheme {
     return ThemeData(
       appBarTheme: AppBarTheme(

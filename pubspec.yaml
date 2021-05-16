@@ -33,6 +33,7 @@ dependencies:
   flutter_wall_layout: ^1.0.0
   image_picker: ^0.7.5
   shared_preferences: ^2.0.5
+  flutter_svg: ^0.22.0
 
 dev_dependencies:
   flutter_test:
@@ -52,6 +53,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - images/
+    - icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
