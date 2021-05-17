@@ -247,6 +247,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               Container(
                 width: double.infinity,
+                height: kBottomNavigationBarHeight,
                 child: ElevatedButton(
                   onPressed: save,
                   child: Text(
